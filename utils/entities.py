@@ -53,6 +53,22 @@ def extract_receiver(text: str):
             
     return None
 
+def extract_limit(text: str):
+    """
+    Extracts the number of records requested (e.g. 'last 10 transactions').
+    """
+    patterns = [
+        r'\blast\s+(\d+)\b',
+        r'\brecent\s+(\d+)\b',
+        r'\blatest\s+(\d+)\b'
+    ]
+    
+    for pattern in patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            return int(match.group(1))
+    return None
+
 def extract_entities(text: str):
     """
     Main entry point for entity extraction.
@@ -60,7 +76,8 @@ def extract_entities(text: str):
     """
     return {
         "amount": extract_amount(text),
-        "receiver": extract_receiver(text)
+        "receiver": extract_receiver(text),
+        "limit": extract_limit(text)
     }
 
 if __name__ == "__main__":

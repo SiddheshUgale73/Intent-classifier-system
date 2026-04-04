@@ -1,0 +1,74 @@
+{
+  "CHECK_BALANCE": {
+    "description": "The user wants to view their current account balance or check available funds.",
+    "approaches": [
+      "Fetch real-time balance from the core banking system.",
+      "Identify the specific account (savings, checking, credit) mentioned.",
+      "Display the amount along with the timestamp of the last update."
+    ]
+  },
+  "TRANSFER_MONEY": {
+    "description": "The user is requesting to move funds between accounts or send money to another person.",
+    "approaches": [
+      "Extract the 'amount' and 'receiver' entities from the query.",
+      "Verify if the source account has sufficient funds.",
+      "Execute a secure transaction following multi-factor authentication."
+    ]
+  },
+  "REPORT_LOST_CARD": {
+    "description": "The user has lost their physical card and needs to notify the bank to prevent fraud.",
+    "approaches": [
+      "Identify which card (debit/credit) is missing.",
+      "Temporarily suspend card activity to secure the account.",
+      "Initiate the replacement card issuance process."
+    ]
+  },
+  "BLOCK_CARD": {
+    "description": "The user wants to immediately disable their card for security reasons.",
+    "approaches": [
+      "Trigger an immediate 'Hard Block' on the card network.",
+      "Stop all pending and future authorizations.",
+      "Send a confirmation notification to the user's registered device."
+    ]
+  },
+  "TRANSACTION_HISTORY": {
+    "description": "The user wants to review their past spending, deposits, or statements.",
+    "approaches": [
+      "Query the ledger for recent transactions (default is last 5-10).",
+      "Categorize transactions for better user visibility.",
+      "Provide options for date-range filtering or exporting as PDF/CSV."
+    ]
+  },
+  "RESET_PIN": {
+    "description": "The user has forgotten their PIN or wants to change it for security.",
+    "approaches": [
+      "Validate the user's identity using biometric or OTP verification.",
+      "Guide the user through the secure PIN setup process.",
+      "Ensure the new PIN meets complexity requirements."
+    ]
+  },
+  "GREETING": {
+    "description": "The user is initiating a conversation or saying hello.",
+    "approaches": [
+      "Acknowledge the user with a professional and friendly welcome.",
+      "Offer assistance with common banking tasks like transfers or balance checks.",
+      "Provide a quick summary of what the AI assistant can do."
+    ]
+  },
+  "OTHER": {
+    "description": "The query is outside the scope of banking intents or is purely conversational.",
+    "approaches": [
+      "Politely inform the user that the assistant specializes in banking.",
+      "Search for keywords that might relate to existing banking functions.",
+      "Provide a sample list of supported queries to help the user rephrase."
+    ]
+  },
+  "UNCERTAIN": {
+    "description": "The system could not confidently classify the intent based on the input provided.",
+    "approaches": [
+      "Ask the user to rephrase their request more clearly.",
+      "Suggest likely intents if the confidence is close to the threshold.",
+      "Provide examples of how to ask for common bank services."
+    ]
+  }
+}

@@ -428,3 +428,33 @@ Transfer to my savings account.,TRANSFER_MONEY
 "What is the speed of light?",OTHER
 "How do I meditate?",OTHER
 "Latest tech news",OTHER
+"i forget my pin",RESET_PIN
+"I can't remember my PIN",RESET_PIN
+"Help, I forgot my bank code",RESET_PIN
+"reset my pin please",RESET_PIN
+"I need a new PIN for my card",RESET_PIN
+"Forgot my secret code",RESET_PIN
+"How do I change my PIN?",RESET_PIN
+"My pin is not working",RESET_PIN
+"How can I reset my PIN?",RESET_PIN
+"PIN reset help",RESET_PIN
+"Lost my PIN",RESET_PIN
+"i lost my credit card",REPORT_LOST_CARD
+"My credit card is gone",REPORT_LOST_CARD
+"I misplaced my card",REPORT_LOST_CARD
+"stolen credit card report",REPORT_LOST_CARD
+"Help with my lost card",REPORT_LOST_CARD
+"Lost my visa card",REPORT_LOST_CARD
+"Reporting a stolen visa",REPORT_LOST_CARD
+"My credit card was stolen",REPORT_LOST_CARD
+"Where is my credit card?",REPORT_LOST_CARD
+"show me my last 10 transactions",TRANSACTION_HISTORY
+"recent 5 payments",TRANSACTION_HISTORY
+"latest 3 transactions",TRANSACTION_HISTORY
+"show last 20 card uses",TRANSACTION_HISTORY
+"what were my last 15 purchases?",TRANSACTION_HISTORY
+"recent activity list of 5",TRANSACTION_HISTORY
+"display last 10 records",TRANSACTION_HISTORY
+"show recent 5 transactions",TRANSACTION_HISTORY
+"I need the last 7 items from my statement",TRANSACTION_HISTORY
+"latest 10 entries",TRANSACTION_HISTORY
