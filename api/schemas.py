@@ -11,6 +11,7 @@ class IntentResult(BaseModel):
     entities: Optional[Dict[str, Any]] = None
     description: Optional[str] = None
     common_approaches: Optional[List[str]] = None
+    suggested_action: Optional[str] = None
 
 class IntentResponse(BaseModel):
     """The main response object for multi-intent detection."""

@@ -63,7 +63,8 @@ def detect_multi_intent(text: str):
                 "confidence": prediction["confidence"],
                 "entities": prediction["entities"],
                 "description": kb_info.get("description", "No description available."),
-                "common_approaches": kb_info.get("approaches", [])
+                "common_approaches": kb_info.get("approaches", []),
+                "suggested_action": kb_info.get("suggested_action", "")
             }
             results.append(intent_obj)
             

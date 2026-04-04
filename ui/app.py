@@ -130,6 +130,27 @@ st.markdown("""
     }
     .badge-local { background: #fee2e2; color: #991b1b; }
     .badge-cloud { background: #dbeafe; color: #1e40af; }
+    
+    .suggestion-box {
+        background: #eef2ff;
+        border: 1px solid #c7d2fe;
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .suggestion-icon {
+        font-size: 1.25rem;
+    }
+    
+    .suggestion-text {
+        font-size: 0.9rem;
+        color: #3730a3;
+        font-weight: 600;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -228,6 +249,19 @@ def display_results(data, is_local=False):
                             <div class="stat-value" style="color: #2563eb;">{display_value}</div>
                         </div>
                     ''', unsafe_allow_html=True)
+
+        # 4. Smart Suggestions (New Feature)
+        suggestion = item.get("suggested_action")
+        if suggestion:
+            st.markdown(f'''
+                <div class="suggestion-box">
+                    <span class="suggestion-icon">💡</span>
+                    <div class="suggestion-text">
+                        <span style="font-size: 0.75rem; opacity: 0.8; display: block; text-transform: uppercase; letter-spacing: 0.05em;">Smart Suggestion</span>
+                        {suggestion}
+                    </div>
+                </div>
+            ''', unsafe_allow_html=True)
 
         st.markdown('</div>', unsafe_allow_html=True)
 

@@ -60,13 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
             fill.style.width = `${confidencePct}%`;
 
             if (item.confidence > 0.8) {
-                fill.style.background = '#10b981'; // Green
+                fill.style.background = '#10b981';
                 text.style.color = '#10b981';
             } else if (item.confidence > 0.6) {
-                fill.style.background = '#f59e0b'; // Orange
+                fill.style.background = '#f59e0b';
                 text.style.color = '#f59e0b';
             } else {
-                fill.style.background = '#ef4444'; // Red
+                fill.style.background = '#ef4444';
                 text.style.color = '#ef4444';
                 badge.style.background = '#fee2e2';
                 badge.style.color = '#991b1b';
@@ -105,6 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                     entityGrid.appendChild(entityItem);
                 });
+            }
+
+            // 5. Smart Suggestions (New Feature)
+            if (item.suggested_action) {
+                const suggestionSection = card.querySelector('.suggestion-container');
+                suggestionSection.classList.remove('hidden');
+                card.querySelector('.suggestion-text').textContent = item.suggested_action;
             }
 
             resultSection.appendChild(card);

@@ -274,6 +274,50 @@ button:hover {
     color: var(--primary);
 }
 
+/* Smart Suggestion Box */
+.suggestion-container {
+    margin-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1.25rem;
+}
+
+.suggestion-box {
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    border-radius: 14px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.1); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.suggestion-icon {
+    font-size: 1.5rem;
+}
+
+.suggestion-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #4338ca;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.suggestion-text {
+    font-size: 0.9rem;
+    color: #3730a3;
+    font-weight: 600;
+}
+
 /* Spinner & UTILS */
 #loading {
     text-align: center;

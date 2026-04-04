@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import os
 import sys
 
@@ -13,7 +14,7 @@ from api.routes import router
 app = FastAPI(
     title="Banking Intent Assistant API",
     description="Multi-intent detection and entity extraction engine.",
-    version="1.2.0"
+    version="1.5.0"
 )
 
 # Startup event to ensure models are ready
@@ -28,9 +29,24 @@ async def startup_event():
 # Include the main prediction and health routes
 app.include_router(router)
 
-# Paths for static UI (Legacy Fallback)
+# Paths for static UI
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_DIR = os.path.join(BASE_DIR, "ui", "static")
+
+@app.get("/")
+async def read_index():
+    """Serves the main HTML UI."""
+    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
+
+@app.get("/style.css")
+async def read_css():
+    """Serves the CSS file."""
+    return FileResponse(os.path.join(STATIC_DIR, "style.css"))
+
+@app.get("/script.js")
+async def read_js():
+    """Serves the JS file."""
+    return FileResponse(os.path.join(STATIC_DIR, "script.js"))
 
 if os.path.exists(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")

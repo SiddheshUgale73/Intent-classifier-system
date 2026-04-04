@@ -5,7 +5,8 @@
       "Fetch real-time balance from the core banking system.",
       "Identify the specific account (savings, checking, credit) mentioned.",
       "Display the amount along with the timestamp of the last update."
-    ]
+    ],
+    "suggested_action": "View your recent transaction history?"
   },
   "TRANSFER_MONEY": {
     "description": "The user is requesting to move funds between accounts or send money to another person.",
@@ -13,7 +14,8 @@
       "Extract the 'amount' and 'receiver' entities from the query.",
       "Verify if the source account has sufficient funds.",
       "Execute a secure transaction following multi-factor authentication."
-    ]
+    ],
+    "suggested_action": "Check your remaining balance?"
   },
   "REPORT_LOST_CARD": {
     "description": "The user has lost their physical card and needs to notify the bank to prevent fraud.",
@@ -21,7 +23,8 @@
       "Identify which card (debit/credit) is missing.",
       "Temporarily suspend card activity to secure the account.",
       "Initiate the replacement card issuance process."
-    ]
+    ],
+    "suggested_action": "Would you like to block this card immediately for security?"
   },
   "BLOCK_CARD": {
     "description": "The user wants to immediately disable their card for security reasons.",
@@ -29,7 +32,8 @@
       "Trigger an immediate 'Hard Block' on the card network.",
       "Stop all pending and future authorizations.",
       "Send a confirmation notification to the user's registered device."
-    ]
+    ],
+    "suggested_action": "Need to reset your PIN or order a replacement?"
   },
   "TRANSACTION_HISTORY": {
     "description": "The user wants to review their past spending, deposits, or statements.",
@@ -37,7 +41,8 @@
       "Query the ledger for recent transactions (default is last 5-10).",
       "Categorize transactions for better user visibility.",
       "Provide options for date-range filtering or exporting as PDF/CSV."
-    ]
+    ],
+    "suggested_action": "Check your total available balance?"
   },
   "RESET_PIN": {
     "description": "The user has forgotten their PIN or wants to change it for security.",
@@ -45,7 +50,8 @@
       "Validate the user's identity using biometric or OTP verification.",
       "Guide the user through the secure PIN setup process.",
       "Ensure the new PIN meets complexity requirements."
-    ]
+    ],
+    "suggested_action": "Check your account status after this change?"
   },
   "GREETING": {
     "description": "The user is initiating a conversation or saying hello.",
@@ -53,7 +59,8 @@
       "Acknowledge the user with a professional and friendly welcome.",
       "Offer assistance with common banking tasks like transfers or balance checks.",
       "Provide a quick summary of what the AI assistant can do."
-    ]
+    ],
+    "suggested_action": "Try asking 'What's my balance?' or 'Transfer 500 dollars'."
   },
   "OTHER": {
     "description": "The query is outside the scope of banking intents or is purely conversational.",
@@ -61,7 +68,8 @@
       "Politely inform the user that the assistant specializes in banking.",
       "Search for keywords that might relate to existing banking functions.",
       "Provide a sample list of supported queries to help the user rephrase."
-    ]
+    ],
+    "suggested_action": "How can I help you with your bank account today?"
   },
   "UNCERTAIN": {
     "description": "The system could not confidently classify the intent based on the input provided.",
@@ -69,6 +77,7 @@
       "Ask the user to rephrase their request more clearly.",
       "Suggest likely intents if the confidence is close to the threshold.",
       "Provide examples of how to ask for common bank services."
-    ]
+    ],
+    "suggested_action": "Try asking for 'Balance', 'Transfer', or 'Block Card'."
   }
 }
