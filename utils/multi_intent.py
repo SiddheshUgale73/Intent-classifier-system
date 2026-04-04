@@ -33,17 +33,22 @@ def detect_multi_intent(text: str):
     Splits the user input into sub-sentences based on conjunctions and processes each for intent and entities.
     Returns: A dictionary formatted for the multi-intent response.
     """
-    # 1. Splitting logic
     # Using regex to split on 'and', 'then', 'also', and commas (,) while preserving some structure
     delimiters = r'\band\b|\bthen\b|\balso\b|,'
-    raw_fragments = re.split(delimiters, text, flags=re.IGNORECASE)
     
-    # Clean fragments: strip whitespace and filter out trivial ones (e.g., " ")
-    fragments = [f.strip() for f in raw_fragments if len(f.strip()) > 3]
-    
-    # Fallback: if no valid fragments, treat the whole text as one
-    if not fragments:
+    # 1. Fast-Track Auto-Detection
+    # If no common conjunctions are found, immediately process as a single intent (High Performance)
+    if not re.search(delimiters, text, flags=re.IGNORECASE):
         fragments = [text.strip()]
+    else:
+        # Multi-intent splitting logic
+        raw_fragments = re.split(delimiters, text, flags=re.IGNORECASE)
+        # Clean fragments: strip whitespace and filter out trivial ones (e.g., " ")
+        fragments = [f.strip() for f in raw_fragments if len(f.strip()) > 3]
+        
+        # Fallback: if no valid fragments, treat the whole text as one
+        if not fragments:
+            fragments = [text.strip()]
         
     results = []
     
