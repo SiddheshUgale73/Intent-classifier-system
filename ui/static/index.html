@@ -19,58 +19,62 @@
 
         <main>
             <div class="input-section">
-                <textarea id="userInput" placeholder="e.g. transfer 500 to John..."></textarea>
+                <textarea id="userInput" placeholder="e.g. transfer 500 to Rahul and show balance..."></textarea>
                 <button id="analyzeBtn">Analyze Query</button>
             </div>
 
             <div id="loading" class="hidden">
                 <div class="spinner"></div>
-                <p>Analyzing with AI...</p>
+                <p>Analyzing multi-intent patterns...</p>
             </div>
 
             <div id="resultSection" class="hidden">
-                <div class="card result-card">
-                    <div class="result-header">
-                        <h3>Detection Results</h3>
-                        <span id="intentBadge" class="badge">---</span>
-                    </div>
-                    
-                    <div class="metrics">
-                        <div class="metric">
-                            <label>Confidence</label>
-                            <div class="progress-bar">
-                                <div id="confidenceFill" class="fill"></div>
-                            </div>
-                            <span id="confidenceText">0%</span>
-                        </div>
-                    </div>
-
-                    <div id="uncertainAlert" class="alert hidden">
-                        ⚠️ <strong>Ambiguous Query</strong>
-                        <p>The system is not confident enough. Please try rephrasing.</p>
-                    </div>
-
-                    <div id="entitySection" class="entities">
-                        <h4>🏷️ Extracted Entities</h4>
-                        <div class="entity-grid">
-                            <div class="entity-item">
-                                <span class="label">Amount</span>
-                                <span id="amountValue" class="value">N/A</span>
-                            </div>
-                            <div class="entity-item">
-                                <span class="label">Receiver</span>
-                                <span id="receiverValue" class="value">N/A</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Result Cards will be dynamically injected here -->
             </div>
         </main>
 
         <footer>
-            <p>v1.0.0 | Powered by Sentence Transformers</p>
+            <p>v1.2.0 | Advanced Multi-Intent & Explainability Engine</p>
         </footer>
     </div>
+
+    <!-- Template for Result Card -->
+    <template id="intentCardTemplate">
+        <div class="card result-card">
+            <div class="result-header">
+                <h3 class="action-number">Action #1</h3>
+                <span class="intent-badge badge">---</span>
+            </div>
+            
+            <div class="metrics">
+                <div class="metric">
+                    <label>Confidence Score</label>
+                    <div class="progress-bar">
+                        <div class="confidence-fill fill"></div>
+                    </div>
+                    <span class="confidence-text">0%</span>
+                </div>
+            </div>
+
+            <div class="reasoning-strategy">
+                <div class="reasoning-box">
+                    <strong>📖 Meaning</strong>
+                    <p class="intent-description">Calculating intent context...</p>
+                </div>
+                <div class="strategy-box">
+                    <strong>🛠️ Common Approaches</strong>
+                    <ul class="approaches-list"></ul>
+                </div>
+            </div>
+
+            <div class="entities hidden">
+                <h4>🏷️ Extracted Data</h4>
+                <div class="entity-grid">
+                    <!-- Entity items will be injected here -->
+                </div>
+            </div>
+        </div>
+    </template>
 
     <script src="script.js"></script>
 </body>

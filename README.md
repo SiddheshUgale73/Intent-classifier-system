@@ -1,49 +1,57 @@
-# 🏦 Smart Banking Assistant: Intent Classification & Entity Extraction
+# 🏦 Smart Banking Assistant: Multi-Intent Platform
 
-A production-ready NLP system designed to empower modern banking applications with semantic understanding. This system uses state-of-the-art transformer embeddings to classify customer intents and extract actionable transaction data in real-time.
+A production-ready NLP system designed to empower modern banking applications with semantic understanding. This system uses state-of-the-art transformer embeddings to classify customer intents, extract actionable transaction data, and handle complex multi-intent queries in real-time.
 
 ---
 
 ## 🌟 Project Overview
 
 The **Smart Banking Assistant** provides a robust, modular framework for processing natural language banking queries. It bridges the gap between raw user input and structured financial transactions by combining:
-- **Semantic Classification**: High-accuracy intent detection using `Sentence Transformers`.
-- **Structured Extraction**: Automated identification of transaction amounts and receivers.
+
+- **Multi-Intent Processing**: Detect and process multiple actions in a single query (e.g., "Transfer 500 and show balance").
+- **Explainable AI (XAI)**: Provides clear reasoning and "common approaches" for every detected intent using a curated knowledge base.
+- **Structured Extraction**: Automated identification of transaction amounts, receivers, and history limits.
 - **Persistent Auditing**: Full logging of all interactions for business intelligence and model refinement.
 
 ---
 
 ## 🛠️ Tech Stack
+
 - **NLP Engine**: `Sentence-Transformers (all-MiniLM-L6-v2)`
 - **Classifier**: `Scikit-learn (Logistic Regression)`
-- **Backend API**: `FastAPI` (High performance, Asynchronous)
-- **Frontend UI**: `Streamlit` (Premium interactive dashboard)
-- **Utilities**: `NLTK`, `Pandas`, `Joblib`
+- **Core Logic**: `NLTK`, `Pandas`, `Joblib`
+- **Backend API**: `FastAPI` (High performance, Multi-intent schemas)
+- **Frontend UI**: `Streamlit` (Premium intelligence-driven dashboard)
 
 ---
 
 ## 📂 Project Structure
+
 ```text
 intent-classifier-system/
-├── api/             # FastAPI Application (v1.0.0)
-│   └── app.py       # Consolidated API entry point
-├── data/            # Knowledge Base
-│   └── dataset.csv  # 700+ banking intent examples
-├── model/           # Machine Learning Assets
-│   ├── train.py     # Modular training pipeline
-│   ├── predict.py   # Integrated inference engine
-│   ├── model.pkl    # Trained classifier
-│   └── encoder.pkl  # Transformer metadata
-├── ui/              # User Interface
-│   └── app.py       # Premium Streamlit dashboard
-├── utils/           # Shared Utilities
-│   ├── entities.py  # Rule-based entity extraction
-│   ├── logger.py    # Persistent audit logging
+├── api/                 # FastAPI Implementation
+│   ├── app.py           # Main API Application
+│   ├── routes.py        # Centralized Endpoint Routing
+│   └── schemas.py       # Pydantic Multi-Intent Schemas
+├── data/                # Knowledge Base & Dataset
+│   ├── dataset.csv      # 700+ banking intent examples
+│   └── intent_knowledge.json # Explainability Core (Descriptions & Approaches)
+├── model/               # Machine Learning Assets
+│   ├── train.py         # Modular training pipeline
+│   ├── predict.py       # Intent classification engine
+│   ├── model.pkl        # Trained classifier (Logistic Regression)
+│   └── encoder.pkl      # Transformer metadata
+├── ui/                  # User Interface
+│   └── app.py           # Premium Streamlit Dashboard
+├── utils/               # Shared Utilities
+│   ├── multi_intent.py  # NEW: Conjunction-based intent splitter
+│   ├── entities.py      # Rule-based entity extraction
+│   ├── logger.py        # Persistent audit logging
 │   └── preprocessing.py # Text normalization pipeline
-├── logs/            # Audit Trails
-│   └── predictions.csv # Historical interaction logs
-├── main.py          # Unified system orchestrator
-└── requirements.txt # Dependency manifest
+├── logs/                # Audit Trails
+│   └── predictions.csv  # Historical interaction logs
+├── main.py              # Unified system orchestrator
+└── requirements.txt     # Dependency manifest
 ```
 
 ---
@@ -53,48 +61,35 @@ intent-classifier-system/
 ### 1. Installation
 Ensure you have Python 3.8+ installed. It is highly recommended to use a virtual environment.
 ```powershell
-# Install dependencies
 pip install -r requirements.txt
 ```
 
 ### 2. Training the Model
-The system comes with a pre-generated dataset. Use the modular training pipeline to generate the model artifacts.
+Generate model artifacts using the modular training pipeline.
 ```powershell
 python model/train.py
 ```
 
 ### 3. Launching the System
-You can launch the entire system (API + UI) with a single command:
+Launch the entire system (API + UI) with a single command:
 ```powershell
 python main.py
 ```
 
 ---
 
-## 📟 Component Guides
+## 📝 Example Multi-Intent Interactions
 
-#### Running the Web UI
-The frontend provides a premium, lightweight, and modern dashboard.
-```powershell
-# Starting the system automatically opens the UI
-python main.py
-```
-- **Live Access**: Open `http://localhost:8000` in your browser.
-
----
-
-## 📝 Example Interactions
-
-| User Input | Predicted Intent | Extracted Amount | Extracted Receiver |
+| User Input | Detected Intents | Extracted Data | Confidence |
 | :--- | :--- | :--- | :--- |
-| "Transfer 500 dollars to John" | `TRANSFER_MONEY` | `$500.00` | `John` |
-| "Show my last transactions" | `TRANSACTION_HISTORY` | `N/A` | `N/A` |
-| "Close my lost credit card!" | `BLOCK_CARD` | `N/A` | `N/A` |
+| "Transfer 500 to John and show balance" | `TRANSFER_MONEY`, `CHECK_BALANCE` | $500.00, John | 98.5% |
+| "I lost my card, please block it!" | `REPORT_LOST_CARD`, `BLOCK_CARD` | N/A | 97.2% |
+| "Hi! Show my last 5 transactions" | `GREETING`, `TRANSACTION_HISTORY` | Limit: 5 | 96.8% |
 
 ---
 
 ## 📊 Logging & Auditing
-Every interaction is recorded in `logs/predictions.csv`, providing a reliable audit trail for compliance, performance monitoring, and continuous model improvement.
+Every interaction is recorded in `logs/predictions.csv`, providing a reliable audit trail for compliance, performance monitoring, and continuous model refinement.
 
 ---
 **Developed for the next generation of Fintech.**
