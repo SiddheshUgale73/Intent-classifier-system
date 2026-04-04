@@ -6,7 +6,8 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from api.schemas import IntentRequest, IntentResponse, HealthCheck
-from model.predict import predict_intent, load_model
+from model.predict import load_model
+from utils.multi_intent import detect_multi_intent
 
 router = APIRouter()
 
@@ -24,18 +25,21 @@ def health_check():
 @router.post("/predict", response_model=IntentResponse)
 def predict(request: IntentRequest):
     """
-    Predicts the intent using the model/predict module.
+    Predicts multiple intents using the multi_intent utility.
     """
     try:
-        result = predict_intent(request.text)
+        # Use the multi-intent logic to handle complex queries
+        result = detect_multi_intent(request.text)
+        
+        # The result structure matches the new IntentResponse schema
         return IntentResponse(
-            intent=result["intent"],
-            confidence=result["confidence"],
-            text=request.text,
-            entities=result.get("entities")
+            status=result["status"],
+            input=result["input"],
+            intents=result["intents"],
+            timestamp=result["timestamp"]
         )
     except FileNotFoundError as e:
         raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:
-        print(f"Prediction error: {e}")
+        print(f"Multi-intent prediction error: {e}")
         raise HTTPException(status_code=500, detail="Internal server error during prediction.")

@@ -8,27 +8,17 @@ import json
 # Add parent directory to sys.path for local imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from model.predict import predict_intent, load_model
+from model.predict import load_model
+from utils.multi_intent import detect_multi_intent
 
 # --- Configuration & UI Setup ---
 API_URL = "http://localhost:8000/predict"
-KNOWLEDGE_BASE_PATH = os.path.join("data", "intent_knowledge.json")
 
 st.set_page_config(
     page_title="Banking Assistant | Intent AI",
     page_icon="🏦",
     layout="centered"
 )
-
-# --- Load Knowledge Base ---
-@st.cache_data
-def load_knowledge_base():
-    if os.path.exists(KNOWLEDGE_BASE_PATH):
-        with open(KNOWLEDGE_BASE_PATH, 'r') as f:
-            return json.load(f)
-    return {}
-
-intent_kb = load_knowledge_base()
 
 # Custom Premium CSS for Intelligent AI look
 st.markdown("""
@@ -62,13 +52,19 @@ st.markdown("""
         box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
     }
     
-    .result-section {
+    .result-card {
         padding: 1.5rem;
         border-radius: 16px;
         background: white;
         border: 1px solid #e2e8f0;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        animation: fadeIn 0.5s ease-out;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
     
     .intent-label {
@@ -96,6 +92,7 @@ st.markdown("""
         padding: 1rem;
         border-radius: 12px;
         text-align: center;
+        border: 1px solid #e2e8f0;
     }
     
     .stat-value {
@@ -107,18 +104,6 @@ st.markdown("""
         font-size: 0.75rem;
         color: #64748b;
         font-weight: 600;
-    }
-    
-    .entity-tag {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        background: #dcfce7;
-        color: #166534;
-        font-size: 0.875rem;
-        font-weight: 600;
-        margin-right: 0.5rem;
-        margin-bottom: 0.5rem;
     }
     
     .approach-item {
@@ -134,6 +119,17 @@ st.markdown("""
         color: #2563eb;
         margin-top: 0.125rem;
     }
+
+    .badge {
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        border-radius: 6px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .badge-local { background: #fee2e2; color: #991b1b; }
+    .badge-cloud { background: #dbeafe; color: #1e40af; }
     </style>
 """, unsafe_allow_html=True)
 
@@ -151,155 +147,144 @@ def try_load_models():
 models_ready = try_load_models()
 
 def display_results(data, is_local=False):
-    """Structured and explainable result display."""
+    """Structured and explainable result display for multiple intents."""
     
-    intent = data["intent"]
-    confidence = data["confidence"]
-    kb_data = intent_kb.get(intent, intent_kb.get("UNCERTAIN", {}))
+    st.markdown(f"<br>", unsafe_allow_html=True)
+    mode_badge = '<span class="badge badge-local">LOCAL ENGINE (OFFLINE)</span>' if is_local else '<span class="badge badge-cloud">CLOUD API (LIVE)</span>'
+    st.markdown(mode_badge, unsafe_allow_html=True)
     
-    # Color Logic
-    if confidence > 0.8:
-        conf_class = "confidence-high"
-        conf_color = "#10b981"
-        conf_icon = "🟢"
-    elif confidence > 0.6:
-        conf_class = "confidence-medium"
-        conf_color = "#f59e0b"
-        conf_icon = "🟠"
-    else:
-        conf_class = "confidence-low"
-        conf_color = "#ef4444"
-        conf_icon = "🔴"
+    intents = data.get("intents", [])
+    
+    if not intents:
+        st.warning("No intents detected in the input.")
+        return
 
-    # 1. Detection Results
-    st.markdown('<div class="result-section">', unsafe_allow_html=True)
-    st.markdown('### 🔍 Detection Results')
-    
-    col1, col2 = st.columns([2, 1])
-    with col1:
-        st.markdown(f'<div class="intent-label">Classified Intent</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="intent-value">{intent.replace("_", " ")}</div>', unsafe_allow_html=True)
-        if is_local:
-            st.caption("⚙️ Mode: Local Engine (Offline)")
+    for i, item in enumerate(intents):
+        intent = item["intent"]
+        confidence = item["confidence"]
+        description = item.get("description", "No description available.")
+        approaches = item.get("common_approaches", [])
+        entities = item.get("entities", {})
+
+        # Color Logic
+        if confidence > 0.8:
+            conf_class = "confidence-high"
+            conf_icon = "🟢"
+        elif confidence > 0.6:
+            conf_class = "confidence-medium"
+            conf_icon = "🟠"
         else:
-            st.caption("☁️ Mode: Cloud API (Live)")
+            conf_class = "confidence-low"
+            conf_icon = "🔴"
+
+        # Start Intent Card
+        st.markdown(f'<div class="result-card">', unsafe_allow_html=True)
+        st.markdown(f'### 🤖 Action #{i+1}')
+        
+        # 1. Detection Results
+        col1, col2 = st.columns([2, 1])
+        with col1:
+            st.markdown(f'<div class="intent-label">Classified Intent</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="intent-value">{intent.replace("_", " ")}</div>', unsafe_allow_html=True)
+                
+        with col2:
+            st.markdown(f'<div class="intent-label">Confidence</div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="stat-value {conf_class}">{confidence*100:.1f}% {conf_icon}</div>', unsafe_allow_html=True)
+            st.progress(confidence)
+
+        # 2. Meaning & Explainability
+        st.markdown("---")
+        st.markdown('#### 🔍 Reasoning & Strategy')
+        col_a, col_b = st.columns(2)
+        
+        with col_a:
+            st.markdown('**Intent Meaning**')
+            st.write(description)
             
-    with col2:
-        st.markdown(f'<div class="intent-label">Confidence Score</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="stat-value {conf_class}">{confidence*100:.1f}% {conf_icon}</div>', unsafe_allow_html=True)
-        st.progress(confidence)
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    # 2. Meaning & Explainability
-    col_a, col_b = st.columns(2)
-    
-    with col_a:
-        st.markdown('<div class="result-section" style="height: 100%;">', unsafe_allow_html=True)
-        st.markdown('### 📖 Meaning')
-        st.write(kb_data.get("description", "No description available for this intent."))
-        st.markdown('</div>', unsafe_allow_html=True)
-        
-    with col_b:
-        st.markdown('<div class="result-section" style="height: 100%;">', unsafe_allow_html=True)
-        st.markdown('### 🛠️ Common Approaches')
-        for approach in kb_data.get("approaches", ["No specific approaches defined."]):
-            st.markdown(f'''
-                <div class="approach-item">
-                    <span class="approach-icon">→</span>
-                    <span>{approach}</span>
-                </div>
-            ''', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # 3. Entity Handling (Conditional)
-    entities = data.get("entities", {})
-    # Check if any entity has a value
-    has_entities = any(val for val in entities.values()) if entities else False
-    
-    if has_entities:
-        st.markdown('<div class="result-section">', unsafe_allow_html=True)
-        st.markdown('### 📦 Extracted Entities')
-        
-        valid_entities = {k: v for k, v in entities.items() if v}
-        e_cols = st.columns(len(valid_entities))
-        curr_col = 0
-        for name, value in valid_entities.items():
-            with e_cols[curr_col]:
-                display_value = f"${value:,.2f}" if name == "amount" else str(value)
+        with col_b:
+            st.markdown('**Common Approaches**')
+            for approach in approaches:
                 st.markdown(f'''
-                    <div class="stat-card">
-                        <div class="stat-label">{name.upper()}</div>
-                        <div class="stat-value" style="color: #2563eb;">{display_value}</div>
+                    <div class="approach-item">
+                        <span class="approach-icon">→</span>
+                        <span>{approach}</span>
                     </div>
                 ''', unsafe_allow_html=True)
-            curr_col += 1
+            if not approaches:
+                st.caption("No specific sub-steps defined.")
+
+        # 3. Entity Handling (Conditional)
+        valid_entities = {k: v for k, v in entities.items() if v}
+        if valid_entities:
+            st.markdown("---")
+            st.markdown('#### 📦 Extracted Data')
+            e_cols = st.columns(len(valid_entities))
+            for j, (name, value) in enumerate(valid_entities.items()):
+                with e_cols[j]:
+                    display_value = f"${value:,.2f}" if name == "amount" else str(value)
+                    st.markdown(f'''
+                        <div class="stat-card">
+                            <div class="stat-label">{name.upper()}</div>
+                            <div class="stat-value" style="color: #2563eb;">{display_value}</div>
+                        </div>
+                    ''', unsafe_allow_html=True)
+
         st.markdown('</div>', unsafe_allow_html=True)
 
     # 4. JSON Response Section
-    with st.expander("🛠️ Developer: View Raw API Response"):
-        st.code(json.dumps(data, indent=4), language="json")
+    with st.expander("🛠️ Developer: View Raw Multi-Intent JSON"):
+        st.json(data)
 
 # --- UI Header ---
-st.markdown("<br>", unsafe_allow_html=True)
-st.title("🏦 Smart Banking Assistant")
+st.title("🏦 Banking Intent Assistant")
 st.markdown("""
     <p style="color: #64748b; font-size: 1.1rem; margin-bottom: 2rem;">
-        Harnessing Advanced NLP to understand your financial needs. 
-        Ask about transfers, balances, or card security.
+        Advanced Multi-Action Detection Engine. <br>
+        <i>Try: "Transfer 500 dollars to Rahul then check my balance"</i>
     </p>
 """, unsafe_allow_html=True)
 
 # --- Sidebar ---
 with st.sidebar:
     st.image("https://img.icons8.com/clouds/200/000000/bank.png", width=120)
-    st.header("Engine Connectivity")
+    st.header("Engine Status")
     if models_ready:
-        st.success("Local Engine: Operational")
+        st.success("NLP Core: Ready")
     else:
-        st.error("Local Engine: Offline")
-        st.info("💡 Run `model/train.py` to enable local inference.")
+        st.error("NLP Core: Offline")
     
     st.markdown("---")
-    st.caption("System v1.2.0 | Neural Architecture")
-    st.caption("© 2024 Intent-AI Framework")
+    st.caption("Version 1.5.0 | Multi-Intent Support")
+    st.caption("© 2024 Intent-Classifier Pro")
 
 # --- Main Interaction ---
 user_input = st.text_input(
     "How can I help you today?", 
-    placeholder="e.g. Can you transfer 2500 to Rahul?",
-    help="Type your banking request here. We support 450+ semantic patterns."
+    placeholder="e.g. Please send 250 to mom and show my history",
+    help="You can combine multiple requests using 'and', 'then', or 'also'."
 )
 
-if st.button("Classify Request"):
+if st.button("Analyze Complex Query"):
     if user_input.strip():
-        with st.spinner("Processing through neural pipeline..."):
+        with st.spinner("Decoding multi-intent patterns..."):
             # Try API first
             success = False
             try:
-                response = requests.post(API_URL, json={"text": user_input}, timeout=2)
+                response = requests.post(API_URL, json={"text": user_input}, timeout=3)
                 if response.status_code == 200:
                     display_results(response.json(), is_local=False)
                     success = True
                 else:
-                    st.warning(f"API Server returned {response.status_code}. Falling back to local engine.")
+                    st.warning(f"API Server Error ({response.status_code}).")
             except Exception:
-                pass # Silent fallback
+                pass 
             
             if not success:
                 # Local fallback
                 if models_ready:
-                    result = predict_intent(user_input)
+                    result = detect_multi_intent(user_input)
                     display_results(result, is_local=True)
                 else:
-                    st.error("System Unavailable. Please ensure the API is running or the local model is trained.")
+                    st.error("System Unavailable. Please check local model status.")
     else:
         st.warning("Please enter a query to analyze.")
-
-# --- Footer Dataset ---
-st.markdown("<br><br>", unsafe_allow_html=True)
-with st.expander("📂 Explore Knowledge Base (Dataset)"):
-    if os.path.exists(os.path.join("data", "dataset.csv")):
-        df = pd.read_csv(os.path.join("data", "dataset.csv"))
-        st.dataframe(df.head(15), use_container_width=True)
-    else:
-        st.info("Dataset file not found in /data.")
