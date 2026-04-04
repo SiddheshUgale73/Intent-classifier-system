@@ -23,25 +23,33 @@ def extract_receiver(text: str):
     Extracts the receiver's name from text using rule-based logic.
     Focuses on words following common keywords like 'to', 'transfer to', 'send to'.
     """
-    # Common patterns for banking transfers
+    # 1. Use regex for patterns (case-insensitive for the name part now)
     patterns = [
-        r'\bto\s+([A-Z][a-z]+)\b',          # "to John"
-        r'\bsend\s+money\s+to\s+([A-Z][a-z]+)\b', # "send money to John"
-        r'\btransfer\s+to\s+([A-Z][a-z]+)\b',   # "transfer to John"
-        r'\bpay\s+([A-Z][a-z]+)\b'           # "pay John"
+        r'\bto\s+([A-Za-z]+)\b',          
+        r'\bsend\s+money\s+to\s+([A-Za-z]+)\b', 
+        r'\btransfer\s+to\s+([A-Za-z]+)\b',   
+        r'\bpay\s+([A-Za-z]+)\b'           
     ]
     
     for pattern in patterns:
-        match = re.search(pattern, text)
+        # Use re.IGNORECASE for the match
+        match = re.search(pattern, text, re.IGNORECASE)
         if match:
-            return match.group(1)
+            name = match.group(1)
+            # Ensure the "name" isn't actually the amount or a small stopword
+            if not name.isdigit() and len(name) > 2:
+                return name.capitalize() # Normalize for the UI
             
-    # Fallback: look for any capitalized word that isn't at the start 
-    # and follows common prepositions (if not already matched)
+    # 2. Token-based fallback: look for words after 'to' or 'for'
     tokens = text.split()
     for i in range(1, len(tokens)):
-        if tokens[i-1].lower() in ['to', 'for'] and tokens[i][0].isupper():
-            return tokens[i].rstrip('.,!?')
+        prev = tokens[i-1].lower()
+        curr = tokens[i].strip('.,!?')
+        
+        if prev in ['to', 'for']:
+            # If current word is mostly alphabetic and not a small functional word
+            if curr.isalpha() and len(curr) > 2 and curr.lower() not in ['this', 'that', 'them']:
+                return curr.capitalize()
             
     return None
 

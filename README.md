@@ -73,18 +73,13 @@ python main.py
 
 ## 📟 Component Guides
 
-### Running the API Individually
-The FastAPI backend provides a high-performance REST interface.
+#### Running the Web UI
+The frontend provides a premium, lightweight, and modern dashboard.
 ```powershell
-uvicorn api.app:app --host 0.0.0.0 --port 8000
+# Starting the system automatically opens the UI
+python main.py
 ```
-- **Docs**: Visit `http://localhost:8000/docs` for interactive Swagger UI.
-
-### Running the Streamlit UI Individually
-The frontend provides a premium, user-friendly dashboard for query analysis.
-```powershell
-streamlit run ui/app.py
-```
+- **Live Access**: Open `http://localhost:8000` in your browser.
 
 ---
 

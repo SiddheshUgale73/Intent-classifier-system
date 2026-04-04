@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Intent & Entity Extraction</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">🏦</div>
+            <h1>Smart Banking Assistant</h1>
+            <p>Enter your request below to analyze intent and extract data.</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <textarea id="userInput" placeholder="e.g. transfer 500 to John..."></textarea>
+                <button id="analyzeBtn">Analyze Query</button>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing with AI...</p>
+            </div>
+
+            <div id="resultSection" class="hidden">
+                <div class="card result-card">
+                    <div class="result-header">
+                        <h3>Detection Results</h3>
+                        <span id="intentBadge" class="badge">---</span>
+                    </div>
+                    
+                    <div class="metrics">
+                        <div class="metric">
+                            <label>Confidence</label>
+                            <div class="progress-bar">
+                                <div id="confidenceFill" class="fill"></div>
+                            </div>
+                            <span id="confidenceText">0%</span>
+                        </div>
+                    </div>
+
+                    <div id="uncertainAlert" class="alert hidden">
+                        ⚠️ <strong>Ambiguous Query</strong>
+                        <p>The system is not confident enough. Please try rephrasing.</p>
+                    </div>
+
+                    <div id="entitySection" class="entities">
+                        <h4>🏷️ Extracted Entities</h4>
+                        <div class="entity-grid">
+                            <div class="entity-item">
+                                <span class="label">Amount</span>
+                                <span id="amountValue" class="value">N/A</span>
+                            </div>
+                            <div class="entity-item">
+                                <span class="label">Receiver</span>
+                                <span id="receiverValue" class="value">N/A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>v1.0.0 | Powered by Sentence Transformers</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

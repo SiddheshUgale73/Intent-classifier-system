@@ -4,26 +4,19 @@ import os
 
 def run_app():
     """
-    Launches the FastAPI backend and Streamlit UI.
+    Launches the FastAPI backend which serves the HTML UI.
     """
     print("Starting Intent Classification System...")
     
-    # 1. Start FastAPI in the background
-    print("Launching API...")
-    # Using python -m uvicorn or similar
-    api_proc = subprocess.Popen(["uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8000"])
-    
-    # Wait for API to start
-    time.sleep(2)
-    
-    # 2. Start Streamlit
-    print("Launching UI...")
+    # Start FastAPI
+    print("Launching API & Web UI at http://localhost:8000...")
     try:
-        subprocess.run(["streamlit", "run", "ui/app.py"])
+        # Launching synchronously since it's the only process now
+        import uvicorn
+        uvicorn.run("api.app:app", host="127.0.0.1", port=8000, reload=False)
     except KeyboardInterrupt:
-        print("Shutting down...")
+        print("\nShutting down...")
     finally:
-        api_proc.terminate()
         print("Done!")
 
 if __name__ == "__main__":

@@ -1,0 +1,256 @@
+:root {
+    --primary: #4A90E2;
+    --primary-dark: #357ABD;
+    --secondary: #f0f4f8;
+    --text: #333;
+    --light-text: #666;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --card-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    --uncertain: #f39c12;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.background-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+main {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    resize: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+button {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Results Section */
+.result-card {
+    margin-top: 1.5rem;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    background: #e1f5fe;
+    color: #01579b;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.metrics {
+    margin-bottom: 1.5rem;
+}
+
+.metric label {
+    font-size: 0.8rem;
+    color: var(--light-text);
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.3rem;
+}
+
+.fill {
+    width: 0%;
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.5s ease-out;
+}
+
+#confidenceText {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Entities Section */
+.entities {
+    background: #f9fbff;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.entities h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+}
+
+.entity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.entity-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.entity-item .label {
+    font-size: 0.75rem;
+    color: var(--light-text);
+}
+
+.entity-item .value {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+/* Alert Box */
+.alert {
+    padding: 1rem;
+    background: #fff8e1;
+    border-left: 4px solid var(--uncertain);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.alert p {
+    margin-top: 0.2rem;
+    color: #5d4037;
+}
+
+/* Loading Spinner */
+#loading {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Utilities */
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.75rem;
+}
