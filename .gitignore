@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Model artifacts (Optional: remove if you want to include them in the repo)
+# model/*.pkl
+
+# Logs
+logs/*.csv
+
+# Data
+# data/dataset.csv
+
+# OS
+.DS_Store
+Thumbs.db

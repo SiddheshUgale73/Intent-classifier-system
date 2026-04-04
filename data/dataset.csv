@@ -1,0 +1,683 @@
+text,intent
+How much money do I have in my savings account?,CHECK_BALANCE
+What is my current balance?,CHECK_BALANCE
+Can you tell me how much I have left?,CHECK_BALANCE
+Balance check please.,CHECK_BALANCE
+Show me my account balance.,CHECK_BALANCE
+I want to know my balance.,CHECK_BALANCE
+How much is in my checking?,CHECK_BALANCE
+What's the status of my funds?,CHECK_BALANCE
+Do I have enough for a coffee?,CHECK_BALANCE
+Check my balance.,CHECK_BALANCE
+What's my net worth right now?,CHECK_BALANCE
+Show my savings balance.,CHECK_BALANCE
+How much cash do I have?,CHECK_BALANCE
+Current balance in my account?,CHECK_BALANCE
+I need to check my balance.,CHECK_BALANCE
+Show balance.,CHECK_BALANCE
+Am I broke?,CHECK_BALANCE
+Account balance please.,CHECK_BALANCE
+How much money is there?,CHECK_BALANCE
+Verify my balance.,CHECK_BALANCE
+Tell me my balance.,CHECK_BALANCE
+Is there money in my account?,CHECK_BALANCE
+What is the amount in my savings?,CHECK_BALANCE
+I'd like to see my balance.,CHECK_BALANCE
+Can I see my balance?,CHECK_BALANCE
+Check balance for account ending in 1234.,CHECK_BALANCE
+What is my available balance?,CHECK_BALANCE
+Show my available funds.,CHECK_BALANCE
+How much M-PESA balance do I have?,CHECK_BALANCE
+Check my account.,CHECK_BALANCE
+I want to see my money.,CHECK_BALANCE
+How much did I save?,CHECK_BALANCE
+Balance info.,CHECK_BALANCE
+What is my balance?,CHECK_BALANCE
+Give me my balance.,CHECK_BALANCE
+Query balance.,CHECK_BALANCE
+How much is in the bank?,CHECK_BALANCE
+Show my money.,CHECK_BALANCE
+What is the balance of my primary account?,CHECK_BALANCE
+How much is my balance?,CHECK_BALANCE
+Check checking balance.,CHECK_BALANCE
+What's the total in my account?,CHECK_BALANCE
+I need my balance.,CHECK_BALANCE
+Show me the money.,CHECK_BALANCE
+What is my credit card balance?,CHECK_BALANCE
+How much do I owe on my card?,CHECK_BALANCE
+Check my credit limit.,CHECK_BALANCE
+How much can I spend?,CHECK_BALANCE
+What's my current credit balance?,CHECK_BALANCE
+Balance on my visa?,CHECK_BALANCE
+Show me my balance please.,CHECK_BALANCE
+What's the balance?,CHECK_BALANCE
+Checking balance.,CHECK_BALANCE
+Savings balance.,CHECK_BALANCE
+Current funds?,CHECK_BALANCE
+Available cash?,CHECK_BALANCE
+Total balance.,CHECK_BALANCE
+Account summary.,CHECK_BALANCE
+How much is in there?,CHECK_BALANCE
+Balance enquiry.,CHECK_BALANCE
+I want to check my account balance.,CHECK_BALANCE
+Can you show me my balance?,CHECK_BALANCE
+Tell me how much I have.,CHECK_BALANCE
+What is the status of my account?,CHECK_BALANCE
+Balance update.,CHECK_BALANCE
+Check my current balance.,CHECK_BALANCE
+Show my last balance.,CHECK_BALANCE
+How much is left in my account?,CHECK_BALANCE
+What's my balance today?,CHECK_BALANCE
+Available balance?,CHECK_BALANCE
+Checking my balance.,CHECK_BALANCE
+What's the amount in my account?,CHECK_BALANCE
+Show me the balance of my savings.,CHECK_BALANCE
+How much is my checking account balance?,CHECK_BALANCE
+Current account balance.,CHECK_BALANCE
+Savings account balance.,CHECK_BALANCE
+Credit card balance.,CHECK_BALANCE
+Check my balance now.,CHECK_BALANCE
+Show me my account details.,CHECK_BALANCE
+I want to know how much money I have.,CHECK_BALANCE
+What is my current bank balance?,CHECK_BALANCE
+Tell me my available balance.,CHECK_BALANCE
+How much do I have in my bank?,CHECK_BALANCE
+Show me my current funds.,CHECK_BALANCE
+I need to know my balance.,CHECK_BALANCE
+What's my savings balance?,CHECK_BALANCE
+Check my account status.,CHECK_BALANCE
+How much cash do I have left?,CHECK_BALANCE
+What is my total balance?,CHECK_BALANCE
+Show me my balance history.,CHECK_BALANCE
+I want to check my funds.,CHECK_BALANCE
+What is my account balance?,CHECK_BALANCE
+How much is in my account?,CHECK_BALANCE
+Check my savings.,CHECK_BALANCE
+What's my checking balance?,CHECK_BALANCE
+Show my account balance.,CHECK_BALANCE
+I'd like to transfer 500 dollars to John.,TRANSFER_MONEY
+Send 100 bucks to my mom.,TRANSFER_MONEY
+Transfer money to my savings.,TRANSFER_MONEY
+I want to send cash to Sarah.,TRANSFER_MONEY
+Move 200 from checking to savings.,TRANSFER_MONEY
+Pay my rent of 1200.,TRANSFER_MONEY
+Send money to Mike.,TRANSFER_MONEY
+Wire 1000 to my business account.,TRANSFER_MONEY
+Transfer 50 to my friend.,TRANSFER_MONEY
+I need to send some money.,TRANSFER_MONEY
+Can you help me transfer funds?,TRANSFER_MONEY
+Make a payment of 30 dollars.,TRANSFER_MONEY
+Send 20 to Dave.,TRANSFER_MONEY
+Transfer 150 to account 5678.,TRANSFER_MONEY
+Move money to my other account.,TRANSFER_MONEY
+Send funds to my landlord.,TRANSFER_MONEY
+I want to wire money.,TRANSFER_MONEY
+Transfer 1000.,TRANSFER_MONEY
+Send $50.,TRANSFER_MONEY
+Pay my phone bill.,TRANSFER_MONEY
+Transfer to savings.,TRANSFER_MONEY
+Move funds.,TRANSFER_MONEY
+Send money to my brother.,TRANSFER_MONEY
+I need to pay someone.,TRANSFER_MONEY
+Transfer money please.,TRANSFER_MONEY
+Can I send money to my dad?,TRANSFER_MONEY
+I want to make a transfer.,TRANSFER_MONEY
+Send cash.,TRANSFER_MONEY
+Wire transfer 500.,TRANSFER_MONEY
+Transfer 200 to John.,TRANSFER_MONEY
+Send 100 to mom.,TRANSFER_MONEY
+Move 300 to my savings.,TRANSFER_MONEY
+I need to transfer some funds.,TRANSFER_MONEY
+Make a transfer of 100.,TRANSFER_MONEY
+Send 50 to my sister.,TRANSFER_MONEY
+Transfer money to account 9876.,TRANSFER_MONEY
+Move money from savings to checking.,TRANSFER_MONEY
+Send $200.,TRANSFER_MONEY
+Pay my electricity bill.,TRANSFER_MONEY
+Transfer to checking.,TRANSFER_MONEY
+Move cash.,TRANSFER_MONEY
+Send money to my friend.,TRANSFER_MONEY
+I need to pay my friend.,TRANSFER_MONEY
+Transfer funds now.,TRANSFER_MONEY
+Can I send $100?,TRANSFER_MONEY
+I want to move money.,TRANSFER_MONEY
+Send money.,TRANSFER_MONEY
+Wire 100.,TRANSFER_MONEY
+Transfer 50 to mom.,TRANSFER_MONEY
+Send 20 to Sarah.,TRANSFER_MONEY
+Move 100 to savings.,TRANSFER_MONEY
+I need to transfer money.,TRANSFER_MONEY
+Make a payment of 50.,TRANSFER_MONEY
+Send 10 to my brother.,TRANSFER_MONEY
+Transfer money to Sarah.,TRANSFER_MONEY
+Move $50.,TRANSFER_MONEY
+Send money to my mom.,TRANSFER_MONEY
+Pay my internet bill.,TRANSFER_MONEY
+Transfer to my account.,TRANSFER_MONEY
+Move some money.,TRANSFER_MONEY
+Send funds.,TRANSFER_MONEY
+I need to pay a bill.,TRANSFER_MONEY
+Transfer now.,TRANSFER_MONEY
+Can I send money?,TRANSFER_MONEY
+I want to transfer funds.,TRANSFER_MONEY
+Send 50 bucks.,TRANSFER_MONEY
+Wire money.,TRANSFER_MONEY
+Transfer 100.,TRANSFER_MONEY
+Send 50 to John.,TRANSFER_MONEY
+Move 20 to checking.,TRANSFER_MONEY
+I need to send money.,TRANSFER_MONEY
+Make a transfer.,TRANSFER_MONEY
+Send $10.,TRANSFER_MONEY
+Transfer money to mom.,TRANSFER_MONEY
+Move cash to savings.,TRANSFER_MONEY
+Send money to my dad.,TRANSFER_MONEY
+Pay my water bill.,TRANSFER_MONEY
+Transfer to Sarah.,TRANSFER_MONEY
+Move money.,TRANSFER_MONEY
+Send cash now.,TRANSFER_MONEY
+I need to pay rent.,TRANSFER_MONEY
+Transfer funds.,TRANSFER_MONEY
+Can I transfer money?,TRANSFER_MONEY
+I want to send money.,TRANSFER_MONEY
+Send 100 dollars.,TRANSFER_MONEY
+Wire 200.,TRANSFER_MONEY
+Transfer 50.,TRANSFER_MONEY
+Send 20 to my mom.,TRANSFER_MONEY
+Move 50 to savings.,TRANSFER_MONEY
+I need to wire money.,TRANSFER_MONEY
+Make a payment.,TRANSFER_MONEY
+Send funds to Sarah.,TRANSFER_MONEY
+Transfer money to my friend.,TRANSFER_MONEY
+Move $100.,TRANSFER_MONEY
+Send money to my sister.,TRANSFER_MONEY
+Pay my credit card bill.,TRANSFER_MONEY
+Transfer to my savings account.,TRANSFER_MONEY
+I lost my debit card!,REPORT_LOST_CARD
+My credit card is missing.,REPORT_LOST_CARD
+I can't find my bank card.,REPORT_LOST_CARD
+My card was stolen.,REPORT_LOST_CARD
+I think I lost my card.,REPORT_LOST_CARD
+Card lost, help!,REPORT_LOST_CARD
+I need to report a lost card.,REPORT_LOST_CARD
+My card is gone.,REPORT_LOST_CARD
+Lost my visa.,REPORT_LOST_CARD
+My mastercard is missing.,REPORT_LOST_CARD
+I lost my card.,REPORT_LOST_CARD
+Help, I lost my card!,REPORT_LOST_CARD
+My card was taken.,REPORT_LOST_CARD
+I misplaced my card.,REPORT_LOST_CARD
+Card missing.,REPORT_LOST_CARD
+I can't find my card.,REPORT_LOST_CARD
+Report lost card.,REPORT_LOST_CARD
+My card is lost.,REPORT_LOST_CARD
+Lost card report.,REPORT_LOST_CARD
+I lost my debit card.,REPORT_LOST_CARD
+My credit card is lost.,REPORT_LOST_CARD
+I can't find my bank card.,REPORT_LOST_CARD
+My card was stolen.,REPORT_LOST_CARD
+I think I lost my card.,REPORT_LOST_CARD
+Card lost.,REPORT_LOST_CARD
+I need to report a lost card.,REPORT_LOST_CARD
+My card is gone.,REPORT_LOST_CARD
+Lost my card.,REPORT_LOST_CARD
+My card is missing.,REPORT_LOST_CARD
+I lost my card.,REPORT_LOST_CARD
+Help, I lost my card!,REPORT_LOST_CARD
+My card was taken.,REPORT_LOST_CARD
+I misplaced my card.,REPORT_LOST_CARD
+Card missing.,REPORT_LOST_CARD
+I can't find my card.,REPORT_LOST_CARD
+Report lost card.,REPORT_LOST_CARD
+My card is lost.,REPORT_LOST_CARD
+Lost card report.,REPORT_LOST_CARD
+I lost my debit card.,REPORT_LOST_CARD
+My credit card is lost.,REPORT_LOST_CARD
+I can't find my bank card.,REPORT_LOST_CARD
+My card was stolen.,REPORT_LOST_CARD
+I think I lost my card.,REPORT_LOST_CARD
+Card lost.,REPORT_LOST_CARD
+I need to report a lost card.,REPORT_LOST_CARD
+My card is gone.,REPORT_LOST_CARD
+Lost my card.,REPORT_LOST_CARD
+My card is missing.,REPORT_LOST_CARD
+I lost my card.,REPORT_LOST_CARD
+Help, I lost my card!,REPORT_LOST_CARD
+My card was taken.,REPORT_LOST_CARD
+I misplaced my card.,REPORT_LOST_CARD
+Card missing.,REPORT_LOST_CARD
+I can't find my card.,REPORT_LOST_CARD
+Report lost card.,REPORT_LOST_CARD
+My card is lost.,REPORT_LOST_CARD
+Lost card report.,REPORT_LOST_CARD
+I lost my debit card.,REPORT_LOST_CARD
+My credit card is lost.,REPORT_LOST_CARD
+I can't find my bank card.,REPORT_LOST_CARD
+My card was stolen.,REPORT_LOST_CARD
+I think I lost my card.,REPORT_LOST_CARD
+Card lost.,REPORT_LOST_CARD
+I need to report a lost card.,REPORT_LOST_CARD
+My card is gone.,REPORT_LOST_CARD
+Lost my card.,REPORT_LOST_CARD
+My card is missing.,REPORT_LOST_CARD
+I lost my card.,REPORT_LOST_CARD
+Help, I lost my card!,REPORT_LOST_CARD
+My card was taken.,REPORT_LOST_CARD
+I misplaced my card.,REPORT_LOST_CARD
+Card missing.,REPORT_LOST_CARD
+I can't find my card.,REPORT_LOST_CARD
+Report lost card.,REPORT_LOST_CARD
+My card is lost.,REPORT_LOST_CARD
+Lost card report.,REPORT_LOST_CARD
+I lost my debit card.,REPORT_LOST_CARD
+My credit card is lost.,REPORT_LOST_CARD
+I can't find my bank card.,REPORT_LOST_CARD
+My card was stolen.,REPORT_LOST_CARD
+I think I lost my card.,REPORT_LOST_CARD
+Card lost.,REPORT_LOST_CARD
+I need to report a lost card.,REPORT_LOST_CARD
+My card is gone.,REPORT_LOST_CARD
+Lost my card.,REPORT_LOST_CARD
+My card is missing.,REPORT_LOST_CARD
+I lost my card.,REPORT_LOST_CARD
+Help, I lost my card!,REPORT_LOST_CARD
+My card was taken.,REPORT_LOST_CARD
+I misplaced my card.,REPORT_LOST_CARD
+Card missing.,REPORT_LOST_CARD
+I can't find my card.,REPORT_LOST_CARD
+Report lost card.,REPORT_LOST_CARD
+My card is lost.,REPORT_LOST_CARD
+Lost card report.,REPORT_LOST_CARD
+I lost my debit card.,REPORT_LOST_CARD
+My credit card is lost.,REPORT_LOST_CARD
+Block my card immediately!,BLOCK_CARD
+I want to freeze my card.,BLOCK_CARD
+Please block my debit card.,BLOCK_CARD
+Disable my credit card.,BLOCK_CARD
+I need to stop my card.,BLOCK_CARD
+Block my card, please.,BLOCK_CARD
+Can you freeze my card?,BLOCK_CARD
+I want to deactivate my card.,BLOCK_CARD
+Block card now.,BLOCK_CARD
+Freeze my visa.,BLOCK_CARD
+Cancel my card.,BLOCK_CARD
+I need to block my card.,BLOCK_CARD
+Block my bank card.,BLOCK_CARD
+Freeze my credit card.,BLOCK_CARD
+Stop my card.,BLOCK_CARD
+I want to block my card.,BLOCK_CARD
+Block my debit card.,BLOCK_CARD
+Freeze my card.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Deactivate my card.,BLOCK_CARD
+I need to freeze my card.,BLOCK_CARD
+Block my card now.,BLOCK_CARD
+Can you block my card?,BLOCK_CARD
+I want to stop my card.,BLOCK_CARD
+Block my visa card.,BLOCK_CARD
+Freeze my debit card.,BLOCK_CARD
+Cancel card.,BLOCK_CARD
+I need to deactivate my card.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Freeze my card.,BLOCK_CARD
+Block my bank card.,BLOCK_CARD
+Stop my visa.,BLOCK_CARD
+I want to block my debit card.,BLOCK_CARD
+Block my credit card.,BLOCK_CARD
+Freeze my card now.,BLOCK_CARD
+Block card.,BLOCK_CARD
+Deactivate card.,BLOCK_CARD
+I need to block my card.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Freeze my visa.,BLOCK_CARD
+Block my card please.,BLOCK_CARD
+Stop my credit card.,BLOCK_CARD
+I want to freeze my visa.,BLOCK_CARD
+Block my debit card now.,BLOCK_CARD
+Freeze my card.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Cancel my bank card.,BLOCK_CARD
+I need to stop my card.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Freeze my card please.,BLOCK_CARD
+Block my visa card now.,BLOCK_CARD
+Stop my card now.,BLOCK_CARD
+I want to block my card.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Freeze my debit card now.,BLOCK_CARD
+Block card please.,BLOCK_CARD
+Deactivate my credit card.,BLOCK_CARD
+I need to freeze my visa.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Freeze my card.,BLOCK_CARD
+Block my credit card now.,BLOCK_CARD
+Stop my debit card.,BLOCK_CARD
+I want to block my visa.,BLOCK_CARD
+Block my card now.,BLOCK_CARD
+Freeze my card please.,BLOCK_CARD
+Block card.,BLOCK_CARD
+Cancel my visa.,BLOCK_CARD
+I need to deactivate my credit card.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Freeze my card now.,BLOCK_CARD
+Block my bank card now.,BLOCK_CARD
+Stop my card please.,BLOCK_CARD
+I want to freeze my card now.,BLOCK_CARD
+Block my debit card.,BLOCK_CARD
+Freeze my visa now.,BLOCK_CARD
+Block card now.,BLOCK_CARD
+Deactivate card now.,BLOCK_CARD
+I need to block my visa.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Freeze my card.,BLOCK_CARD
+Block my card please.,BLOCK_CARD
+Stop my card now.,BLOCK_CARD
+I want to block my credit card.,BLOCK_CARD
+Block my card now.,BLOCK_CARD
+Freeze my card please.,BLOCK_CARD
+Block card now.,BLOCK_CARD
+Cancel card now.,BLOCK_CARD
+I need to stop my visa.,BLOCK_CARD
+Block my card.,BLOCK_CARD
+Freeze my card please.,BLOCK_CARD
+Block my debit card now.,BLOCK_CARD
+Stop my bank card.,BLOCK_CARD
+I want to freeze my visa now.,BLOCK_CARD
+Block my card now.,BLOCK_CARD
+Freeze my card please.,BLOCK_CARD
+Block card please.,BLOCK_CARD
+Deactivate my card now.,BLOCK_CARD
+I need to block my card now.,BLOCK_CARD
+Block my visa card now.,BLOCK_CARD
+Freeze my card now.,BLOCK_CARD
+Show me my last 5 transactions.,TRANSACTION_HISTORY
+I want to see my statement.,TRANSACTION_HISTORY
+Transaction history please.,TRANSACTION_HISTORY
+Can I see my recent activity?,TRANSACTION_HISTORY
+List my latest purchases.,TRANSACTION_HISTORY
+Show my transaction history.,TRANSACTION_HISTORY
+I need a statement of my account.,TRANSACTION_HISTORY
+What are my recent transactions?,TRANSACTION_HISTORY
+See my spending history.,TRANSACTION_HISTORY
+Show transactions.,TRANSACTION_HISTORY
+List my transactions.,TRANSACTION_HISTORY
+I want to see my transaction history.,TRANSACTION_HISTORY
+Show me my recent spending.,TRANSACTION_HISTORY
+Can I see my account activity?,TRANSACTION_HISTORY
+List my recent transactions.,TRANSACTION_HISTORY
+Show my transaction list.,TRANSACTION_HISTORY
+I need my bank statement.,TRANSACTION_HISTORY
+What did I buy recently?,TRANSACTION_HISTORY
+See my account history.,TRANSACTION_HISTORY
+Show my transactions.,TRANSACTION_HISTORY
+List transactions.,TRANSACTION_HISTORY
+I want to see my recent purchases.,TRANSACTION_HISTORY
+Show me my spending details.,TRANSACTION_HISTORY
+Can I see my transaction record?,TRANSACTION_HISTORY
+List my activity.,TRANSACTION_HISTORY
+Show my history.,TRANSACTION_HISTORY
+I need my transaction history.,TRANSACTION_HISTORY
+What was my last transaction?,TRANSACTION_HISTORY
+See my statement.,TRANSACTION_HISTORY
+Show transactions list.,TRANSACTION_HISTORY
+List my purchases.,TRANSACTION_HISTORY
+I want to see my transaction activity.,TRANSACTION_HISTORY
+Show me my recent transactions.,TRANSACTION_HISTORY
+Can I see my transaction history?,TRANSACTION_HISTORY
+List my recent purchases.,TRANSACTION_HISTORY
+Show my account statement.,TRANSACTION_HISTORY
+I need to see my transactions.,TRANSACTION_HISTORY
+What are my last transactions?,TRANSACTION_HISTORY
+See my transaction history.,TRANSACTION_HISTORY
+Show my recent activity.,TRANSACTION_HISTORY
+List my history.,TRANSACTION_HISTORY
+I want to see my statement.,TRANSACTION_HISTORY
+Show me my account activity.,TRANSACTION_HISTORY
+Can I see my transaction list?,TRANSACTION_HISTORY
+List my spending.,TRANSACTION_HISTORY
+Show my activity list.,TRANSACTION_HISTORY
+I need to see my transaction history.,TRANSACTION_HISTORY
+What did I spend money on recently?,TRANSACTION_HISTORY
+See my account activity.,TRANSACTION_HISTORY
+Show my statement history.,TRANSACTION_HISTORY
+List my transaction history.,TRANSACTION_HISTORY
+I want to see my transactions.,TRANSACTION_HISTORY
+Show me my history.,TRANSACTION_HISTORY
+Can I see my recent transactions?,TRANSACTION_HISTORY
+List my spending history.,TRANSACTION_HISTORY
+Show my transaction activity.,TRANSACTION_HISTORY
+I need to see my account history.,TRANSACTION_HISTORY
+What were my recent purchases?,TRANSACTION_HISTORY
+See my history.,TRANSACTION_HISTORY
+Show my transaction record.,TRANSACTION_HISTORY
+List my recent transactions.,TRANSACTION_HISTORY
+I want to see my account history.,TRANSACTION_HISTORY
+Show me my transactions list.,TRANSACTION_HISTORY
+Can I see my statement?,TRANSACTION_HISTORY
+List my account activity.,TRANSACTION_HISTORY
+Show my recent history.,TRANSACTION_HISTORY
+I need to see my statement.,TRANSACTION_HISTORY
+What is my transaction history?,TRANSACTION_HISTORY
+See my recent activity.,TRANSACTION_HISTORY
+Show my activity.,TRANSACTION_HISTORY
+List my transaction record.,TRANSACTION_HISTORY
+I want to see my recent activity.,TRANSACTION_HISTORY
+Show me my history list.,TRANSACTION_HISTORY
+Can I see my spending?,TRANSACTION_HISTORY
+List my statement.,TRANSACTION_HISTORY
+Show my account history list.,TRANSACTION_HISTORY
+I need to see my transactions list.,TRANSACTION_HISTORY
+What did I buy lately?,TRANSACTION_HISTORY
+See my transactions.,TRANSACTION_HISTORY
+Show my transaction history list.,TRANSACTION_HISTORY
+List my recent activity.,TRANSACTION_HISTORY
+I want to see my history.,TRANSACTION_HISTORY
+Show me my activity record.,TRANSACTION_HISTORY
+Can I see my account record?,TRANSACTION_HISTORY
+List my transactions record.,TRANSACTION_HISTORY
+Show my history record.,TRANSACTION_HISTORY
+I need to see my history.,TRANSACTION_HISTORY
+What is my recent activity?,TRANSACTION_HISTORY
+See my history record.,TRANSACTION_HISTORY
+Show my transaction record list.,TRANSACTION_HISTORY
+List my history list.,TRANSACTION_HISTORY
+I want to see my recent history.,TRANSACTION_HISTORY
+Show me my statement list.,TRANSACTION_HISTORY
+Can I see my activity?,TRANSACTION_HISTORY
+List my recent activity list.,TRANSACTION_HISTORY
+Show my history record list.,TRANSACTION_HISTORY
+Hello!,GREETING
+Hi there!,GREETING
+Good morning.,GREETING
+Hey!,GREETING
+Greetings.,GREETING
+How are you?,GREETING
+Hi bot.,GREETING
+Hello assistant.,GREETING
+Good afternoon.,GREETING
+Good evening.,GREETING
+Hi!,GREETING
+Hey there.,GREETING
+Yo!,GREETING
+Hiya!,GREETING
+Hello.,GREETING
+Hi.,GREETING
+Hey.,GREETING
+Greetings!,GREETING
+How's it going?,GREETING
+What's up?,GREETING
+Hi assistant.,GREETING
+Hello bot.,GREETING
+Good day.,GREETING
+Hey bot.,GREETING
+Hi, how are you?,GREETING
+Hello, what can you do?,GREETING
+Hi, I need help.,GREETING
+Hey, how's everything?,GREETING
+Good morning assistant.,GREETING
+Good afternoon bot.,GREETING
+Good evening assistant.,GREETING
+Hi there bot.,GREETING
+Hello again.,GREETING
+Hi, how's it going?,GREETING
+Hey, how are you today?,GREETING
+Good morning bot.,GREETING
+Good afternoon assistant.,GREETING
+Good evening bot.,GREETING
+Hi there assistant.,GREETING
+Hello, how can you help me?,GREETING
+Hi, what's new?,GREETING
+Hey, what's going on?,GREETING
+Good day assistant.,GREETING
+Good day bot.,GREETING
+Hi buddy.,GREETING
+Hello friend.,GREETING
+Hey pal.,GREETING
+Hi assistant bot.,GREETING
+Hello system.,GREETING
+Hi computer.,GREETING
+Hey machine.,GREETING
+Hi, how are things?,GREETING
+Hello, how is your day?,GREETING
+Hi, I'm back.,GREETING
+Hey, I have a question.,GREETING
+Good morning world.,GREETING
+Good afternoon everyone.,GREETING
+Good evening all.,GREETING
+Hi everyone.,GREETING
+Hello everyone.,GREETING
+Hey everyone.,GREETING
+Hi there everyone.,GREETING
+Hello there everyone.,GREETING
+Hey there everyone.,GREETING
+Hi all.,GREETING
+Hello all.,GREETING
+Hey all.,GREETING
+Hi there all.,GREETING
+Hello there all.,GREETING
+Hey there all.,GREETING
+Hi guys.,GREETING
+Hello guys.,GREETING
+Hey guys.,GREETING
+Hi there guys.,GREETING
+Hello there guys.,GREETING
+Hey there guys.,GREETING
+Hi team.,GREETING
+Hello team.,GREETING
+Hey team.,GREETING
+Hi there team.,GREETING
+Hello there team.,GREETING
+Hey there team.,GREETING
+Hi folks.,GREETING
+Hello folks.,GREETING
+Hey folks.,GREETING
+Hi there folks.,GREETING
+Hello there folks.,GREETING
+Hey there folks.,GREETING
+Hi people.,GREETING
+Hello people.,GREETING
+Hey people.,GREETING
+Hi there people.,GREETING
+Hello there people.,GREETING
+Hey there people.,GREETING
+Hi world.,GREETING
+Hello world.,GREETING
+Hey world.,GREETING
+What's the weather like today?,OTHER
+Tune into my favorite radio station.,OTHER
+I want to order a pizza.,OTHER
+Can you tell me a joke?,OTHER
+How do I bake a cake?,OTHER
+What is the capital of France?,OTHER
+Tell me a story.,OTHER
+What's the time?,OTHER
+Set an alarm for 7am.,OTHER
+Explain quantum physics.,OTHER
+I want to buy a car.,OTHER
+How tall is Mt. Everest?,OTHER
+Play some music.,OTHER
+Search for a nearby restaurant.,OTHER
+What's on the news?,OTHER
+I'm hungry.,OTHER
+Tell me about deep learning.,OTHER
+How do I fix a leaky faucet?,OTHER
+What's the score of the game?,OTHER
+I want to go for a walk.,OTHER
+Check the traffic.,OTHER
+How far is the moon?,OTHER
+What is AI?,OTHER
+I need a vacation.,OTHER
+How do I code in Python?,OTHER
+What's the best movie?,OTHER
+I want to sleep.,OTHER
+Check my email.,OTHER
+How do I exercise?,OTHER
+What's the stock market doing?,OTHER
+I want to learn guitar.,OTHER
+How do I paint?,OTHER
+What's the meaning of life?,OTHER
+I want to travel.,OTHER
+Check the calendar.,OTHER
+How do I grow tomatoes?,OTHER
+What's the best book?,OTHER
+I want to dance.,OTHER
+Check the score.,OTHER
+How do I swim?,OTHER
+What's the best restaurant?,OTHER
+I want to sing.,OTHER
+Check the news.,OTHER
+How do I run?,OTHER
+What's the best game?,OTHER
+I want to play.,OTHER
+Check the stock.,OTHER
+How do I fly?,OTHER
+What's the best place?,OTHER
+I want to see.,OTHER
+Check the time.,OTHER
+How do I drive?,OTHER
+What's the best way?,OTHER
+I want to talk.,OTHER
+Check the date.,OTHER
+How do I read?,OTHER
+What's the best thing?,OTHER
+I want to hear.,OTHER
+Check the weather.,OTHER
+How do I write?,OTHER
+What's the best part?,OTHER
+I want to feel.,OTHER
+Check the map.,OTHER
+How do I draw?,OTHER
+What's the best day?,OTHER
+I want to know.,OTHER
+Check the price.,OTHER
+How do I clean?,OTHER
+What's the best time?,OTHER
+I want to go.,OTHER
+Check the list.,OTHER
+How do I cook?,OTHER
+What's the best food?,OTHER
+I want to eat.,OTHER
+Check the site.,OTHER
+How do I build?,OTHER
+What's the best app?,OTHER
+I want to use.,OTHER
+Check the link.,OTHER
+How do I make?,OTHER
+What's the best tool?,OTHER
+I want to find.,OTHER
+Check the file.,OTHER
+How do I start?,OTHER
+What's the best start?,OTHER
+I want to end.,OTHER
+Check the box.,OTHER
+How do I stop?,OTHER
+What's the best end?,OTHER
+I want to change.,OTHER
+Check the space.,OTHER
+How do I move?,OTHER
+What's the best move?,OTHER
+I want to stay.,OTHER
+Check the point.,OTHER
+How do I keep?,OTHER
+What's the best stay?,OTHER
+I want to leave.,OTHER
+Check the line.,OTHER
