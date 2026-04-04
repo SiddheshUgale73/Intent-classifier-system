@@ -203,12 +203,12 @@ def display_results(data, is_local=False):
         st.markdown('<div class="result-section" style="height: 100%;">', unsafe_allow_html=True)
         st.markdown('### 🛠️ Common Approaches')
         for approach in kb_data.get("approaches", ["No specific approaches defined."]):
-            st.markdown(f\'\'\'
+            st.markdown(f'''
                 <div class="approach-item">
                     <span class="approach-icon">→</span>
                     <span>{approach}</span>
                 </div>
-            \'\'\', unsafe_allow_html=True)
+            ''', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
     # 3. Entity Handling (Conditional)
@@ -226,12 +226,12 @@ def display_results(data, is_local=False):
         for name, value in valid_entities.items():
             with e_cols[curr_col]:
                 display_value = f"${value:,.2f}" if name == "amount" else str(value)
-                st.markdown(f\'\'\'
+                st.markdown(f'''
                     <div class="stat-card">
                         <div class="stat-label">{name.upper()}</div>
                         <div class="stat-value" style="color: #2563eb;">{display_value}</div>
                     </div>
-                \'\'\', unsafe_allow_html=True)
+                ''', unsafe_allow_html=True)
             curr_col += 1
         st.markdown('</div>', unsafe_allow_html=True)
 
