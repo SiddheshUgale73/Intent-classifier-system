@@ -3,82 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banking Intent & Entity Extraction</title>
+    <title>Agent Intelligence | Banking Intent Engine</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="background-gradient"></div>
     
     <div class="container">
         <header>
-            <div class="logo">🏦</div>
-            <h1>Smart Banking Assistant</h1>
-            <p>Enter your request below to analyze intent and extract data.</p>
+            <div class="logo-wrapper">🏦</div>
+            <h1>Banking Intent Engine</h1>
+            <p>High-performance neural analysis for fintech intent decomposition and entity extraction.</p>
         </header>
 
         <main>
+            <div class="stats-bar">
+                <div class="status-indicator">
+                    <span class="dot"></span>
+                    <span>System Active • v1.5.2</span>
+                </div>
+                <div class="engine-info">Logistic-XAI Enabled</div>
+            </div>
+
             <div class="input-section">
-                <textarea id="userInput" placeholder="e.g. transfer 500 to Rahul and show balance..."></textarea>
-                <button id="analyzeBtn">Analyze Query</button>
+                <textarea id="userInput" placeholder="E.g., Transfer 500 to Sarah and check my balance..."></textarea>
+                
+                <div class="sample-bar">
+                    <span class="sample-chip" data-text="Transfer 1200 to Rahul and show my balance">Transfer & Balance</span>
+                    <span class="sample-chip" data-text="I lost my card, please block it immediately">Lost Card</span>
+                    <span class="sample-chip" data-text="Show me the last 5 transactions">History</span>
+                    <span class="sample-chip" data-text="Reset my transaction pin for the debit card">Reset PIN</span>
+                </div>
+
+                <div class="actions">
+                    <button id="analyzeBtn">Analyze Intelligence</button>
+                </div>
             </div>
 
             <div id="loading" class="hidden">
-                <div class="spinner"></div>
-                <p>Analyzing multi-intent patterns...</p>
+                <div class="aura-loader"></div>
+                <p style="color: var(--text-secondary)">Decomposing semantic patterns...</p>
             </div>
 
             <div id="resultSection" class="hidden">
-                <!-- Result Cards will be dynamically injected here -->
+                <!-- Advanced Result Cards -->
             </div>
         </main>
 
         <footer>
-            <p>v1.5.0 | Advanced Proactive AI Engine</p>
+            <p>&copy; 2026 Agentic Banking Assistant. All rights reserved.</p>
         </footer>
     </div>
 
-    <!-- Template for Result Card -->
+    <!-- Enhanced Template for Result Card -->
     <template id="intentCardTemplate">
-        <div class="card result-card">
+        <div class="result-card">
             <div class="result-header">
-                <h3 class="action-number">Action #1</h3>
-                <span class="intent-badge badge">---</span>
+                <span class="action-label">Task Analysis</span>
+                <span class="intent-badge">---</span>
             </div>
             
-            <div class="metrics">
-                <div class="metric">
-                    <label>Confidence Score</label>
-                    <div class="progress-bar">
-                        <div class="confidence-fill fill"></div>
-                    </div>
-                    <span class="confidence-text">0%</span>
+            <div class="confidence-meter">
+                <div class="meter-header">
+                    <span>Classification Confidence</span>
+                    <span class="confidence-val">0%</span>
+                </div>
+                <div class="meter-track">
+                    <div class="meter-fill"></div>
                 </div>
             </div>
 
-            <div class="reasoning-strategy">
-                <div class="reasoning-box">
-                    <strong>📖 Meaning</strong>
-                    <p class="intent-description">Calculating intent context...</p>
+            <div class="content-grid">
+                <div class="info-box">
+                    <h4>📖 Core Context</h4>
+                    <p class="intent-description">Decrypting intent meaning...</p>
                 </div>
-                <div class="strategy-box">
-                    <strong>🛠️ Common Approaches</strong>
+                <div class="info-box">
+                    <h4>🛠️ Strategy Execution</h4>
                     <ul class="approaches-list"></ul>
                 </div>
             </div>
 
-            <div class="entities hidden">
-                <h4>🏷️ Extracted Data</h4>
-                <div class="entity-grid"></div>
+            <div class="entities-section hidden">
+                <h4>🏷️ Knowledge Entities</h4>
+                <div class="entities-grid"></div>
             </div>
 
-            <div class="suggestion-container hidden">
-                <div class="suggestion-box">
-                    <span class="suggestion-icon">💡</span>
-                    <div class="suggestion-content">
-                        <span class="suggestion-label">Smart Suggestion</span>
-                        <p class="suggestion-text"></p>
-                    </div>
+            <div class="proactive-banner hidden">
+                <span class="suggestion-icon">💡</span>
+                <div class="suggestion-body">
+                    <strong>Proactive Intelligence</strong>
+                    <p class="suggestion-text"></p>
                 </div>
             </div>
         </div>
