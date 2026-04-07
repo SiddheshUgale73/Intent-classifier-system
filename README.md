@@ -1,70 +1,71 @@
-# 🏦 Agentic Banking Assistant: Multi-Intent AI Platform
+# 🏦 Agentic Banking Assistant: Intelligence-Driven Intent Platform
+
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.2+-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![NLTK](https://img.shields.io/badge/NLTK-3.8+-black?style=flat)](https://www.nltk.org/)
 
 A production-grade NLP platform designed for the next generation of Fintech. This system provides a robust, explainable, and proactive layer for understanding complex customer banking requests.
 
 ---
 
-## 🎯 Problem Statement
+## 🎯 Project Overview
 
-Traditional banking chatbots struggle with **Complex Single-String Queries** (e.g., *"Transfer 500 dollars to Rahul, also check my balance and then block my card"*). Most systems either fail to detect all actions or provide "black-box" results that the user doesn't understand. 
+Traditional banking chatbots often struggle with **Complex Multi-Step Queries**. Our system identifies single or multiple intents from a single user string, extracts critical financial entities, and provides an explainable reasoning layer for every action.
 
-Our goal was to build a system that:
-1.  **Decomposes** multi-step user requests into individual actionable intents.
-2.  **Explains** its reasoning using a curated knowledge base (Explainable AI).
-3.  **Anticipates** the user's next move with proactive smart suggestions.
-4.  **Minimizes Latency** with high-performance auto-detection of single-intent vs. multi-intent strings.
+### 🚀 Key Innovations
+- **Fast-Track Decision Engine**: Zero-latency prediction for simple queries by bypassing the multi-intent splitter.
+- **Multi-Intent Decomposition**: Automatically breaks down complex sentences like *"Pay 500 to Rahul and check my balance"* into separate actionable tasks.
+- **Explainable AI (XAI)**: Every prediction is enriched with technical reasoning and suggested strategies from a curated knowledge base.
 
 ---
 
-## 🏗️ System Workflow (Logical Flow)
+## 🏗️ System Architecture
 
-The system follows a standard AI/ML pipeline optimized for speed and accuracy:
+The following diagram illustrates the flow from raw user input to the final intelligence-enriched output.
 
-1.  **User Input**: High-level natural language request.
-2.  **Preprocessing (NLTK)**:
-    -   Tokenization, Stopword removal, and Lemmatization.
-    -   Normalization to prepare for the encoder.
-3.  **Fast-Track Decision Engine**:
-    -   If no conjunctions (`and`, `then`, `,`) are found, the system **Short-Circuits** directly to the prediction engine (High Performance).
-    -   If conjunctions exist, the **Multi-Intent Splitter** breaks the input into logical fragments.
-4.  **Semantic Encoding**:
-    -   Fragments are passed to `all-MiniLM-L6-v2` (Sentence Transformer) to generate 384-dimensional semantic embeddings.
-5.  **Intent Classification**:
-    -   The **Logistic Regression** model classifies each embedding with a confidence score.
-6.  **Entity Extraction**:
-    -   Regex-based patterns extract **Amounts**, **Receivers**, and **Record Limits** from the text.
-7.  **Knowledge Enrichment**:
-    -   The output is joined with `intent_knowledge.json` to attach **Meaning** and **Technical Approaches**.
-8.  **Predictive Prompting**:
-    -   The system suggests a **Logical Next Step** based on the detected intent.
-9.  **UI Rendering**:
-    -   Results are displayed in a premium, card-based dashboard.
+```mermaid
+graph TD
+    User([User Request]) --> InputCheck{Fast-Track Engine}
+    
+    InputCheck -- Single Intent --> Vectorizer[Sentence Transformer]
+    InputCheck -- Multi Intent --> Splitter[Conjunction Splitter]
+    
+    Splitter --> Fragments[Query Fragments]
+    Fragments --> Vectorizer
+    
+    Vectorizer --> Embeddings[Semantic Embeddings]
+    Embeddings --> Classifier{Logistic Regression}
+    
+    Classifier --> Intents[Predicted Intents]
+    Intents --> EntityExtract[Regex Entity Extractor]
+    
+    EntityExtract --> XAI[Explainability Engine]
+    XAI --> Proactive[Proactive Suggestions]
+    
+    Proactive --> UI[Smart UI Rendering]
+```
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Component | Technology | Role |
+| Layer | Technology | Purpose |
 | :--- | :--- | :--- |
-| **Backend API** | `FastAPI` | High-performance asynchronous endpoint serving. |
-| **NLP Embeddings** | `Sentence-Transformers` | `all-MiniLM-L6-v2` for semantic representation. |
-| **ML Model** | `Scikit-learn` | Logistic Regression (Classifier). |
-| **Data Logic** | `Pandas / NumPy` | Vector normalization and data manipulation. |
-| **Preprocessing** | `NLTK` | Text cleaning, lemmatization, and tokenization. |
-| **Frontend UI 1** | `Streamlit` | Proactive, intelligence-driven AI dashboard. |
-| **Frontend UI 2** | `Static Web (HTML/JS)`| Lightweight browser-based interface at `localhost:8000`. |
-| **Validation** | `Pydantic` | Data schemas for robust API responses. |
+| **Orchestration** | `FastAPI` | Asynchronous high-performance API serving. |
+| **Embeddings** | `all-MiniLM-L6-v2` | Generating 384-dimensional semantic vectors. |
+| **Classifier** | `Logistic Regression` | High-accuracy intent classification (Scikit-Learn). |
+| **Extraction** | `Regex / NLTK` | Rule-based entity parsing (Amounts, Receivers, Limits). |
+| **Frontend** | `Streamlit / Vanilla JS` | Proactive dashboard and lightweight web interface. |
+| **Persistence** | `Pandas / CSV` | Audit logging and analytics. |
 
 ---
 
-## 🌟 Key Features Implemented
+## 🌟 Visual Showcase
 
-- **Multi-Intent Support**: Decomposes complex strings into individual actions.
-- **Explainable AI (XAI)**: Displays "Reasoning & Strategy" for every result.
-- **Predictive Proactive AI**: Suggests the "Next Best Action" (e.g., Suggesting a Card Block after a Lost Card Report).
-- **Fast-Track Auto-Detection**: Optimized performance for single-intent queries.
-- **Entity Identification**: Accurately extracts critical financial data.
-- **Audit Logging**: Every interaction is recorded in `logs/predictions.csv` for analytics.
+- **Real-Time Analytics**: Monitor classification confidence and intent distribution.
+- **Proactive Prompts**: The system suggests the "Next Best Action" (e.g., suggesting a balance check after a transfer).
+- **Entity Mastery**: Precise extraction of transaction amounts and recipient names even in unstructured text.
 
 ---
 
@@ -72,24 +73,28 @@ The system follows a standard AI/ML pipeline optimized for speed and accuracy:
 
 ```text
 intent-classifier-system/
-├── api/                 # FastAPI Implementation (v1.5.0)
-│   ├── app.py           # Core System Entry (Root + Multi-Intent Routes)
+├── api/                 # FastAPI Implementation
+│   ├── app.py           # Core System Logic
+│   ├── main.py          # API Server Entry
 │   ├── routes.py        # Prediction & Health Endpoints
-│   └── schemas.py       # Pydantic Multi-Intent Structures
+│   └── schemas.py       # Pydantic Data Models
 ├── data/                # Knowledge & Data Layer
-│   ├── dataset.csv      # 700+ Training Examples
-│   └── intent_knowledge.json # Explainability & Smart Reasoning Base
+│   ├── dataset.csv      # Unified Training Data
+│   └── intent_knowledge.json # Explainability Base
+├── logs/                # Audit & Analytics
+│   └── predictions.csv  # Interaction History
 ├── model/               # Machine Learning Engine
 │   ├── train.py         # Modular training pipeline
-│   ├── predict.py       # Intent & Entity prediction unit
+│   ├── predict.py       # Prediction Orchestrator
 │   ├── model.pkl        # Logistic Regression Classifier
-│   └── encoder.pkl      # Transformer Model Metadata
+│   └── encoder.pkl      # Transformer Metadata
 ├── ui/                  # Advanced Frontends
-│   ├── app.py           # Proactive Streamlit Dashboard
-│   └── static/          # Static Web Dashboard Assets (HTML/CSS/JS)
+│   ├── app.py           # Streamlit Dashboard
+│   └── static/          # Web dashboard (HTML/CSS/JS)
 ├── utils/               # Logic Utilities
-│   ├── multi_intent.py  # Conjunction-based Splitter & Fast-Track Engine
-│   ├── entities.py      # Regex-driven Entity Extraction
+│   ├── multi_intent.py  # Fast-Track & Splitting Engine
+│   ├── entities.py      # Entity Extraction Logic
+│   ├── loaders.py       # Resource Loading Utilities
 │   ├── logger.py        # Persistent Auditing
 │   └── preprocessing.py # NLTK Text Sanitization
 ├── main.py              # Unified System Orchestrator
@@ -98,24 +103,37 @@ intent-classifier-system/
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Future Roadmap
 
-### 1. Install Dependencies
+We are continuously evolving the system to meet the demands of modern banking.
+
+1.  **Transformer-Based NER**: Integrating HuggingFace `token-classification` models for more robust entity detection across diverse naming conventions.
+2.  **Voice-to-Intent**: Adding a speech recognition layer (Whisper API) for hands-free interactions.
+3.  **Multilingual Expansion**: Supporting regional languages by leveraging multi-lingual encoders like `LaBSE`.
+4.  **Security Hardening**: Implementing JWT-based authentication and end-to-end encryption for API payloads.
+5.  **Sandbox Integration**: Connecting the "Suggested Actions" to mock banking APIs (like Plaid) for a full end-to-end simulation.
+
+---
+
+## ⚡ Getting Started
+
+### 1. Setup Environment
 ```powershell
 pip install -r requirements.txt
 ```
 
-### 2. Generate the AI Weights (Train)
+### 2. Train the Model
 ```powershell
 python model/train.py
 ```
 
-### 3. Launch the Platform
+### 3. Run the Platform
 ```powershell
 python main.py
 ```
--   **Web Dashboard**: `http://localhost:8000`
--   **API Documentation**: `http://localhost:8000/docs`
+
+Access the **Web Dashboard** at `http://localhost:8000` or the **API Docs** at `http://localhost:8000/docs`.
 
 ---
-**Developed for the next generation of Fintech Intelligence.**
+**Crafted with ❤️ for the future of Fintech.**
+

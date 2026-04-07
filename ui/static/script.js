@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     analyzeBtn.addEventListener('click', async () => {
         const text = userInput.value.trim();
-        
+
         if (!text) {
             alert('Please enter some text to analyze.');
             return;
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         data.intents.forEach((item, index) => {
             const card = intentCardTemplate.content.cloneNode(true);
-            
+
             // 1. Action Number & Intent
             card.querySelector('.action-number').textContent = `Action #${index + 1}`;
             const badge = card.querySelector('.intent-badge');
